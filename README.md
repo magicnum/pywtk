@@ -36,7 +36,7 @@ Basic REPL commands:
 `load`: load files paths into a `wordlists` list or files content into `db` dictionary.
 Choose of item based on file extension (json for `db`, any other for `wordlists`).
 ```bash
-pywtk:~$ load wordlists abc.txt
+pywtk:~$ load abc.txt
 ```
 
 `load` supports wildcard symbol, so `load hashes0.txt hashes1.txt` is equal to `load hashes*.txt`.
@@ -52,7 +52,7 @@ pywtk:~$ merge wordlists merged.dic
 
 `makedb`: make json structure with hashes and full paths of wordlists.
 ```bash
-pywtk:~$ load wordlists old_200*.txt
+pywtk:~$ load old_200*.txt
 ...
 pywtk:~$ makedb old.json
 ```
@@ -81,7 +81,7 @@ Current items are:
 Thanks to _riposte_ you can use it as CLI too:
 
 ```bash
-python pywtk.py -c "load wordlists passwords201*.dic; merge wordlists merged.dic"
+python pywtk.py -c "load passwords201*.dic; merge wordlists merged.dic"
 ```
 
 ## TODO
