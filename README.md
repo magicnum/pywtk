@@ -1,7 +1,7 @@
 
 # pywtk
 
-Easy to use REPL wordlists manager with "lazy" merger for low-memory machines writen in Python.
+Easy to use REPL wordlists manager with "lazy" merger for low-memory machines written in Python.
 ### Main feature: ability to merge large files fast and without a RAM overflow
 
 ## Packages
@@ -23,7 +23,7 @@ python pywtk.py
 
 ## Commands
 
-Basic REPL commands: 
+Basic REPL commands:
 * `load` [paths]
 * `merge` [item, outfilename]
 * `makedb` [db_path]
@@ -33,8 +33,8 @@ Basic REPL commands:
 
 ---
 
-`load`: load files paths into a `wordlists` list or files content into `db` dictonary.
-Choose of item based on file extenction (json for `db`, any other for `wordlists`).
+`load`: load files paths into a `wordlists` list or files content into `db` dictionary.
+Choose of item based on file extension (json for `db`, any other for `wordlists`).
 ```bash
 pywtk:~$ load wordlists abc.txt
 ```
@@ -43,7 +43,7 @@ pywtk:~$ load wordlists abc.txt
 
 ---
 
-`merge`: merges files content and delete duplicates using _dask_ parralel computation.
+`merge`: merges files content and delete duplicates using _dask_ parallel computation.
 ```bash
 pywtk:~$ merge wordlists merged.dic
 ```
@@ -59,7 +59,7 @@ pywtk:~$ makedb old.json
 
 ---
 
-`show`: output current state of loaded `item`. 
+`show`: output current state of loaded `item`.
 ```bash
 pywtk:~$ show all
 ```
@@ -68,7 +68,7 @@ pywtk:~$ show all
 
 `chdir`: setup current working folder.
 ```bash
-pywtk:~$ chdir /home/user/wordlists/ 
+pywtk:~$ chdir /home/user/wordlists/
 ```
 Current items are:
 
@@ -87,4 +87,3 @@ python pywtk.py -c "load wordlists passwords201*.dic; merge wordlists merged.dic
 ## TODO
 
 * regex, minimal and maximum length of string filters 
-
