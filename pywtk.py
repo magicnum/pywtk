@@ -112,9 +112,9 @@ def makedb(name: str):
                 {abspath(wordlist):{'hashes':getHashSum(wordlist),'size_mb':round(size,2)}})
         with open(name, 'w') as f:
             f.write(dumps(DBS, indent=2))
-        mainrepl.success('New DB created succesfuly')
+        mainrepl.success('New DB created successfully')
     else:
-        raise RiposteException('You need to provide paths for wordlists fist') 
+        raise RiposteException('List of wordlists is empty') 
 
 
 @mainrepl.command("exit")
