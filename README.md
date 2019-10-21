@@ -18,7 +18,7 @@ Easy to use REPL wordlists manager with "lazy" merger for low-memory machines wr
 github clone https://github.com/magicnum/pywtk
 cd pywtk
 pip install -r requirements.txt
-python pywtk.py
+python3 pywtk.py
 ```
 
 ## Commands
