@@ -5,7 +5,6 @@ Easy to use REPL wordlists manager with "lazy" merger for low-memory machines wr
 ### Main feature: ability to merge large files fast and without a RAM overflow
 
 ## Packages
----
 
 * [dask](https://github.com/dask/dask)
 * [riposte](https://github.com/fwkz/riposte)
@@ -14,7 +13,6 @@ Easy to use REPL wordlists manager with "lazy" merger for low-memory machines wr
 * [pandas](https://github.com/pandas-dev/pandas)
 
 ## Installing
----
 
 ```bash
 github clone https://github.com/magicnum/pywtk
@@ -24,7 +22,6 @@ python pywtk.py
 ```
 
 ## Commands
----
 
 Basic REPL commands: 
 * `load` [paths]
@@ -80,7 +77,6 @@ Current items are:
 * `all`
 
 ## CLI
----
 
 Thanks to _riposte_ you can use it as CLI too:
 
@@ -89,7 +85,6 @@ python pywtk.py -c "load wordlists passwords201*.dic; merge wordlists merged.dic
 ```
 
 ## TODO
----
 
 * regex, minimal and maximum length of string filters 
 
