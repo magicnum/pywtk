@@ -72,8 +72,8 @@ pywtk:~$ chdir /home/user/wordlists/
 ```
 Current items are:
 
-* `wordlist`
-* `db`
+* `wordlists`
+* `dbs`
 * `all`
 
 ## CLI
