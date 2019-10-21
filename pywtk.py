@@ -11,18 +11,18 @@ from riposte import Riposte
 from riposte.exceptions import RiposteException
 
 BANNER = """
-                                                   88         
-                                             ,d    88         
-                                             88    88         
-8b,dPPYba,  8b       d8 8b      db      d8 MM88MMM 88   ,d8   
-88P'    "8a `8b     d8' `8b    d88b    d8'   88    88 ,a8"    
-88       d8  `8b   d8'   `8b  d8'`8b  d8'    88    8888[      
-88b,   ,a8"   `8b,d8'     `8bd8'  `8bd8'     88,   88`"Yba,   
-88`YbbdP"'      Y88'        YP      YP       "Y888 88   `Y8a  
-88              d8'                                           
-88             d8'                                            
+                                                   88
+                                             ,d    88
+                                             88    88
+8b,dPPYba,  8b       d8 8b      db      d8 MM88MMM 88   ,d8
+88P'    "8a `8b     d8' `8b    d88b    d8'   88    88 ,a8"
+88       d8  `8b   d8'   `8b  d8'`8b  d8'    88    8888[
+88b,   ,a8"   `8b,d8'     `8bd8'  `8bd8'     88,   88`"Yba,
+88`YbbdP"'      Y88'        YP      YP       "Y888 88   `Y8a
+88              d8'
+88             d8'
                                                  by magicnum
-                                                                          
+
 """
 
 mainrepl = Riposte(prompt="pywtk:~$ ", banner=BANNER)
@@ -42,13 +42,13 @@ def cdir(path: str):
 
 @mainrepl.command("show")
 def show(mode: str):
-    
+
     show_all = True if mode == 'all' else False
 
     if mode == 'wordlists' or show_all:
         mainrepl.status('Wordlists: ')
         mainrepl.info(WORDLISTS)
-    
+
     if mode == 'dbs' or show_all:
         mainrepl.status('DBs: ')
         mainrepl.info(dumps(DBS, indent=2))
@@ -78,7 +78,7 @@ def merge(mode: str, name: str):
     mainrepl.success(f'Merging takes {elapsed_time:.1f}s')
 
 
-@mainrepl.command("load")            
+@mainrepl.command("load")
 def load(*args):
 
     if not len(args):
@@ -97,10 +97,11 @@ def load(*args):
         else:
             WORDLISTS.append(abspath(fpath))
             temp = list(set(WORDLISTS))
-            WORDLISTS.clear(); WORDLISTS.extend(temp)
+            WORDLISTS.clear()
+            WORDLISTS.extend(temp)
 
         mainrepl.success(f'File {basename(fpath)} added')
-    
+
 
 @mainrepl.command("makedb")
 def makedb(name: str):
@@ -108,13 +109,13 @@ def makedb(name: str):
         mainrepl.status('Creating DB')
         for wordlist in WORDLISTS:
             size = getsize(wordlist) * 10e-7
-            DBS.update(
-                {abspath(wordlist):{'hashes':getHashSum(wordlist),'size_mb':round(size,2)}})
+            DBS.update({abspath(wordlist): {'hashes': getHashSum(
+                wordlist), 'size_mb': round(size, 2)}})
         with open(name, 'w') as f:
             f.write(dumps(DBS, indent=2))
         mainrepl.success('New DB created successfully')
     else:
-        raise RiposteException('List of wordlists is empty') 
+        raise RiposteException('List of wordlists is empty')
 
 
 @mainrepl.command("exit")
@@ -131,7 +132,7 @@ def completer_start(text, line, start_index, end_index):
 
     return [
         subcommand
-        for subcommand in SUBCOMMANDS 
+        for subcommand in SUBCOMMANDS
         if subcommand.startswith(text)
     ]
 
@@ -141,7 +142,7 @@ def completer_start(text, line, start_index, end_index):
 
     return [
         subcommand
-        for subcommand in SUBCOMMANDS[:-1] 
+        for subcommand in SUBCOMMANDS[:-1]
         if subcommand.startswith(text)
     ]
 
@@ -151,7 +152,7 @@ def completer_start(text, line, start_index, end_index):
 
     return [
         subcommand
-        for subcommand in SUBCOMMANDS[:-1] 
+        for subcommand in SUBCOMMANDS[:-1]
         if subcommand.startswith(text)
     ]
 

@@ -24,7 +24,13 @@ def lazyMerger(wordlists, name):
     df = df.drop_duplicates().compute()
 
     with open(name, 'w') as out:
-        out.write(df.to_string(header=False, index=False).replace(' ', '').replace('\\n', ''))
+        out.write(
+            df.to_string(
+                header=False,
+                index=False).replace(
+                ' ',
+                '').replace(
+                '\\n',
+                ''))
 
     return time.perf_counter() - start
-
