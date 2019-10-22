@@ -95,10 +95,8 @@ def load(*args):
             with open(fpath, 'r') as data:
                 DBS.update(loads(data.read()))
         else:
-            WORDLISTS.append(abspath(fpath))
-            temp = list(set(WORDLISTS))
-            WORDLISTS.clear()
-            WORDLISTS.extend(temp)
+            if not abspath(fpath) in WORDLISTS:
+                WORDLISTS.append(abspath(fpath))
 
         mainrepl.success(f'File {basename(fpath)} added')
 
@@ -135,17 +133,6 @@ def completer_start(text, line, start_index, end_index):
         for subcommand in SUBCOMMANDS
         if subcommand.startswith(text)
     ]
-
-
-@mainrepl.complete("load")
-def completer_start(text, line, start_index, end_index):
-
-    return [
-        subcommand
-        for subcommand in SUBCOMMANDS[:-1]
-        if subcommand.startswith(text)
-    ]
-
 
 @mainrepl.complete("merge")
 def completer_start(text, line, start_index, end_index):
