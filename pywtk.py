@@ -118,10 +118,10 @@ def makedb(name: str):
 
 @mainrepl.command("exit")
 def exit():
-    if sys.platform == 'linux':
-        os.system('clear')
-    else:
+    if sys.platform == 'win32':
         os.system('cls')
+    else:
+        os.system('clear')
     sys.exit(0)
 
 
